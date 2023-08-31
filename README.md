@@ -7,6 +7,8 @@
 * Which fighters has highest striking accuracy ?
 * What is most common result for KO in UFC history ?
 
+
+---
 ## Prepare
 
 ### Source
@@ -16,69 +18,68 @@ http://www.ufcstats.com/statistics/events/completed
 
 
 #### Tables Explanation
-Ufc_events
-event_id - Primary key for ufc_events, unique for each event
-event_name - Name of the event, e.g. UFC 267
-event_date - Date of the event (YYYY-MM-DD)
-event_city - City the event was hosted
-event_state - State the event was hosted (if applicable)
-event_country - Country the event was hosted
-event_url - URL used to scrape event data from ufcstats.com
+> Ufc_events\
+> event_id - Primary key for ufc_events, unique for each event\
+> event_name - Name of the event, e.g. UFC 267\
+> event_date - Date of the event (YYYY-MM-DD)\
+> event_city - City the event was hosted\
+> event_state - State the event was hosted (if applicable)\
+> event_country - Country the event was hosted\
+> event_url - URL used to scrape event data from ufcstats.com
 
-Ufc_fights
-fight_id - Primary key for ufc_fights, unique for each fight
-event_id - Secondary key from ufc_events
-referee - Referee of the fight
-f_1 - Fighter 1
-f_2 - Fighter 2
-winner - Winner of the fight
-num_rounds - Number of rounds
-title_fight - Boolean for whether fight is a title fight or not
-weight_class - Weight class of the fight
-gender - Male or female fight
-result - How did the fight end, e.g. decision, KO
-result_details - Specific details of how the fight ended, e.g. KO by elbows, split decision
-finish_round - What round did the fight finish
-finish_time - What minute and second did the fight finish in that round (m:ss)
-fight_url - URL used to scrape fight data from ufcstats.com
+> Ufc_fights\
+> fight_id - Primary key for ufc_fights, unique for each fight\
+> event_id - Secondary key from ufc_events\
+> referee - Referee of the fight\
+> f_1 - Fighter 1\
+> f_2 - Fighter 2\
+> winner - Winner of the fight\
+> num_rounds - Number of rounds\
+> title_fight - Boolean for whether fight is a title fight or not\
+> weight_class - Weight class of the fight\
+> gender - Male or female fight\
+> result - How did the fight end, e.g. decision, KO\
+> result_details - Specific details of how the fight ended, e.g. KO by elbows, split decision\
+> finish_round - What round did the fight finish\
+> finish_time - What minute and second did the fight finish in that round (m:ss)\
+> fight_url - URL used to scrape fight data from ufcstats.com
 
-Ufc_fight_stats
-ufc_fight_stats
-fight_stat_id - Primary key for ufc_fight_stats, unique for each fighter of each fight
-fight_id - Foreign key from ufc_fights
-fighter_id - Foreign key from ufc_fighters
-Knockdowns - No. of knockdowns landed 
-total_strikes_att - No. of strikes attempted
-total_strikes_succ - No. of successful strikes
-sig_strikes_att - No. of significant strikes attempted
-sig_strikes_succ - No. of significant strikes successful
-takedown_att - No. of takedown attempts
-takedown_succ - No. of successful takedowns
-submission_att - No. of submission attempts
-reversals - No. of reversals
-ctrl_time - Control time 
-fighter_age - Age of the fighter
-winner - Boolean for whether fighter won or lost
+> Ufc_fight_stats
+> fight_stat_id - Primary key for ufc_fight_stats, unique for each fighter of each fight\
+> fight_id - Foreign key from ufc_fights\
+> fighter_id - Foreign key from ufc_fighters\
+> Knockdowns - No. of knockdowns landed \
+> total_strikes_att - No. of strikes attempted\
+> total_strikes_succ - No. of successful strikes\
+> sig_strikes_att - No. of significant strikes attempted\
+> sig_strikes_succ - No. of significant strikes successful\
+> takedown_att - No. of takedown attempts\
+> takedown_succ - No. of successful takedowns\
+> submission_att - No. of submission attempts\
+> reversals - No. of reversals\
+> ctrl_time - Control time \
+> fighter_age - Age of the fighter\
+> winner - Boolean for whether fighter won or lost
 
-Ufc_fighters
-ufc_fighters
-fighter_id - Primary key for ufc_fighters, unique for each fighter\
-fighter_f_name - Fighter first name\
-fighter_l_name - Fighter last name\
-fighter_nickname - Fighter nickname\
-fighter_height_cm - Fighter height in cm\
-fighter_weight_lbs - Fighter weight in lbs \
-fighter_reach_cm - Fighter reach in cm\
-fighter_stance - Fighter stance - e.g. southpaw, orthodox\
-fighter_dob - Fighter date of birth\
-fighter_w - No. of wins (at the time of scraping)\
-fighter_l - No. of losses (at the time of scraping)\
-fighter_d - No. of draws (at the time of scraping)\
-fighter_nc_dq - No. of no contests or disqualifications (at the time of scraping)\
-fighter_url - URL used to scrape fighter data from ufcstats.com}
+> Ufc_fighters
+> fighter_id - Primary key for ufc_fighters, unique for each fighter\
+> fighter_f_name - Fighter first name\
+> fighter_l_name - Fighter last name\
+> fighter_nickname - Fighter nickname\
+> fighter_height_cm - Fighter height in cm\
+> fighter_weight_lbs - Fighter weight in lbs \
+> fighter_reach_cm - Fighter reach in cm\
+> fighter_stance - Fighter stance - e.g. southpaw, orthodox\
+> fighter_dob - Fighter date of birth\
+> fighter_w - No. of wins (at the time of scraping)\
+> fighter_l - No. of losses (at the time of scraping)\
+> fighter_d - No. of draws (at the time of scraping)\
+> fighter_nc_dq - No. of no contests or disqualifications (at the time of scraping)\
+> fighter_url - URL used to scrape fighter data from ufcstats.com}
 
-Table Ufc_events has usefull informations but not about questions we trying to answer
+#####Ufc_events - Useless for this analysis.
 
+---
 ## Process 
 
 ### Data cleaning
